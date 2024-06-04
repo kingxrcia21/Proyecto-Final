@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carne Seca Gran Ternera</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script type="module" src="scripts.js"></script>
+</head>
+<body>
+    <header class="header bg-marron text-white text-center py-4">
+        <div class="container">
+            <img src="https://firebasestorage.googleapis.com/v0/b/carne-seca-5eecd.appspot.com/o/iconos%20y%20logos%2Flogo2_white-removebg-preview.png?alt=media&token=7a8afd5b-0a93-4433-aab0-f03df5a5047f" alt="Logo de Carne Seca Gran Ternera" class="logo img-fluid mb-3">
+            <h1 class="display-4">Carne Seca Gran Ternera</h1>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-rojo fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Gran Ternera</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre-nosotros">Sobre Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#productos">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ubicacion">Ubicación</a>
+                    </li>
+                    <li class="nav-item">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="sobre-nosotros" class="py-5 bg-crema mt-5">
+        <div class="container">
+            <h2 class="text-center mb-4 text-marron">Sobre Nosotros</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p>Carne Seca Gran Ternera es una empresa familiar que surge en la ciudad de Durango, Dgo. México. Se dedica a la producción de carne de res secada naturalmente. Inicia en el año 2002 por su fundador Alejandro López Godínez. Carne Seca Gran Ternera tiene 15 años de experiencia en la producción de carne seca.</p>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/carne-seca-5eecd.appspot.com/o/iconos%20y%20logos%2FSobre%20nosotros.jpg?alt=media&token=8fc1300b-b1a9-49a2-95d8-2b65fe7ec9a8" alt="Sobre Nosotros" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="productos" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4 text-marron">Productos</h2>
+            <div class="row" id="productos-container"></div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-5 bg-crema">
+        <div class="container">
+            <h2 class="text-center mb-4 text-marron">Contacto</h2>
+            <p class="text-center">Correo electrónico: info@granternera.com</p>
+            <p class="text-center">Teléfono: +52 618 123 4567</p>
+        </div>
+    </section>
+
+    <section id="ubicacion" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4 text-marron">Ubicación</h2>
+            <div id="map" class="w-100" style="height: 400px;"></div>
+        </div>
+    </section>
+
+    <footer class="bg-marron text-white text-center py-4">
+        <div class="container">
+            <div class="d-flex justify-content-center mb-3">
+                <a href="https://www.facebook.com/GranTernera20" target="_blank" class="me-3">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/carne-seca-5eecd.appspot.com/o/iconos%20y%20logos%2Ffacebook.png?alt=media&token=dd970bd3-e687-42cb-8c27-bd28a7340598" alt="Facebook" class="img-fluid" style="width: 30px;">
+                </a>
+                <a href="https://www.instagram.com/granterneracs/" target="_blank">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/carne-seca-5eecd.appspot.com/o/iconos%20y%20logos%2Finstagram.png?alt=media&token=9690ef05-021a-4fd2-850f-589acd307bd1" alt="Instagram" class="img-fluid" style="width: 30px;">
+                </a>
+            </div>
+            <p>&copy; 2024 Carne Seca Gran Ternera. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="productModal" class="modal fade" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="modalTitle" class="modal-title">Detalles del Producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="modalDescription"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="scripts.js"></script>
+</body>
+</html>

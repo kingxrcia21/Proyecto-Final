@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Carne Seca Gran Ternera</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-rojo fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html" target="_blank">Gran Ternera</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html" target="_blank">Inicio</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="login-section" class="py-5 mt-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Login de Administrador</h2>
+            <form id="login-form">
+                <div class="mb-3">
+                    <label for="login-email" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="login-email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="login-password" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="login-password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="admin-section" class="py-5" style="display:none;">
+        <div class="container">
+            <button id="logout-button" class="btn btn-danger mb-3">Cerrar Sesión</button>
+            <h2 class="text-center mb-4">Administrar Productos</h2>
+            <form id="add-product-form">
+                <div class="mb-3">
+                    <label for="product-name" class="form-label">Nombre del Producto</label>
+                    <input type="text" class="form-control" id="product-name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="product-price" class="form-label">Precio del Producto</label>
+                    <input type="number" class="form-control" id="product-price" required>
+                </div>
+                <div class="mb-3">
+                    <label for="product-description" class="form-label">Descripción del Producto</label>
+                    <textarea class="form-control" id="product-description" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="product-weight" class="form-label">Peso del Producto</label>
+                    <input type="text" class="form-control" id="product-weight" required>
+                </div>
+                <div class="mb-3">
+                    <label for="product-stock" class="form-label">Existencias</label>
+                    <input type="number" class="form-control" id="product-stock" required>
+                </div>
+                <div class="mb-3">
+                    <label for="product-image" class="form-label">Imagen del Producto</label>
+                    <input type="file" class="form-control" id="product-image">
+                </div>
+                <button type="submit" class="btn btn-primary" id="product-button">Agregar Producto</button>
+            </form>
+            <div id="success-message" class="alert alert-success mt-3" style="display: none;">
+                ¡Producto agregado con éxito!
+            </div>
+            <div id="delete-message" class="alert alert-success mt-3" style="display: none;">
+                ¡Producto eliminado con éxito!
+            </div>
+            <h3 class="mt-5">Productos Existentes:</h3>
+            <ul id="product-list" class="list-group mt-3"></ul>
+        </div>
+    </section>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>

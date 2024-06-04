@@ -1,0 +1,75 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F5F5DC; 
+    padding-top: 56px; 
+}
+
+.header {
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/carne-seca-5eecd.appspot.com/o/iconos%20y%20logos%2Fencabezado.jpg?alt=media&token=09902da2-ad86-44e1-847d-8b631e044c4a'); /* Reemplaza con la ruta de tu imagen */
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.header .logo {
+    width: 120px; 
+    animation: bounceIn 2s ease-in-out;
+}
+
+.navbar {
+    background-color: #A52A2A; 
+}
+
+.nav-link {
+    color: white !important;
+}
+
+.nav-link:hover {
+    background-color: #4B2A16 !important;
+}
+
+.bg-crema {
+    background-color: #F5F5DC !important;
+}
+
+.text-marron {
+    color: #4B2A16 !important;
+}
+
+.text-rojo {
+    color: #A52A2A !important;
+}
+
+.card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    background-color: #4B2A16; 
+    color: white;
+}
+
+footer .social-links img {
+    transition: transform 0.3s ease-in-out;
+}
+
+footer .social-links img:hover {
+    transform: scale(1.2);
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.05); opacity: 1; }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
